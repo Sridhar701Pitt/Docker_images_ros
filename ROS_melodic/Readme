@@ -1,0 +1,14 @@
+docker run -it --rm --privileged --net=host --env-file ./.env -v /tmp/.X11-unix:/tmp/.X11-unix -v "$(pwd)":/root/catkin_ws --gpus all ros_melodic_complete:latest /bin/bash
+# Do the above command in the catkin_ws
+# Useful Docker commands
+# Setting envs
+#ENV TURTLEBOT3_MODEL=burger
+#RUN echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+
+
+## Changes to note
+#this added to etc/profile to enable docker access to xhost display
+if [ "$DISPLAY" != "" ]
+then
+  xhost +local:docker
+fi
